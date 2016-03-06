@@ -1,7 +1,9 @@
 #!/usr/bin/python2.7
 from __future__ import print_function
+
 import argparse
-import OrfUtils
+
+from rosalind.utils import orf_utils
 
 # Create the CLI
 cli_parser = argparse.ArgumentParser(description=
@@ -31,12 +33,12 @@ def _get_orfs(sequence):
 def _parse_orf(sequence):
     aa_sequence = []
     for triplet in map(''.join, zip(*[iter(sequence)]*3)):
-        aa_sequence.append(OrfUtils.get_aminoacid(triplet))
+        aa_sequence.append(orf_utils.get_aminoacid(triplet))
     return ''.join(aa_sequence)
 
 
 def _get_reverse_complement(sequence):
-    return ''.join(map(OrfUtils.get_complement, sequence[::-1]))
+    return ''.join(map(orf_utils.get_complement, sequence[::-1]))
 
 
 def _evaluate_orf(sequence):

@@ -32,6 +32,15 @@ _COMPLEMENT = {
 }
 
 
+_RNA_ALPHABET = "AUCG"
+
+_DNA_ALPHABET = "ATCG"
+
+
+def valid_rna_letter(letter):
+    return True if letter in _RNA_ALPHABET else False
+
+
 def get_complement(s):
     return _COMPLEMENT[s]
 
