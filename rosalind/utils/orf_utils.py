@@ -59,11 +59,11 @@ def read_multi_fasta(fasta_file):
         for line in file_handler.readlines():
             if '>' in line:
                 if current_sequence:
-                    all_sequences.append(*current_sequence)
+                    all_sequences.append(''.join(current_sequence))
                     current_sequence = []
                 else:
                     continue
             else:
                 current_sequence.append(line.rstrip())
-    all_sequences.append(*current_sequence)
+    all_sequences.append(''.join(current_sequence))
     return all_sequences

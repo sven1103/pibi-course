@@ -37,7 +37,7 @@ def main():
         all_distances.append(calculate_distance_matrix(sequence, all_sequences))
 
     for distance_row in all_distances:
-        print("\t\t".join(map(str, distance_row)))
+        print("\t\t".join(map(lambda x: '{0:.4f}'.format(x), distance_row)))
 
 
 main()
